@@ -15,5 +15,4 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function edu_craft_domain_register_admin_hooks() {
-	// Placeholder for future admin enhancements.
 }
