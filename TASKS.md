@@ -134,7 +134,7 @@ Add and sync ACF field groups required by the assignment.
 
 ---
 
-## Task 04 — Single Case Study rendering
+✅ ## Task 04 — Single Case Study rendering
 
 ### Branch
 `feature/case-study-single-template`
