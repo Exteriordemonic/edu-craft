@@ -1,0 +1,70 @@
+# -----------------------------------------------------------------------------
+# OS
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# -----------------------------------------------------------------------------
+# Editors / IDEs
+# -----------------------------------------------------------------------------
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# Environment & secrets (never commit)
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------------------------------------------------------
+# Logs & local DB dumps
+# -----------------------------------------------------------------------------
+*.log
+*.sql
+*.sql.gz
+*.sqlite
+*.sqlite3
+
+# -----------------------------------------------------------------------------
+# DDEV (edu-craft) — project-level noise
+# Note: edu-craft/.ddev/.gitignore already ignores most generated DDEV files.
+# -----------------------------------------------------------------------------
+edu-craft/.ddev/import-db/
+edu-craft/.ddev/.importdb*
+
+# -----------------------------------------------------------------------------
+# WordPress (edu-craft/web)
+# -----------------------------------------------------------------------------
+# Media & generated runtime (rebuild from production if needed)
+edu-craft/web/wp-content/uploads/
+edu-craft/web/wp-content/upgrade/
+edu-craft/web/wp-content/backup-db/
+edu-craft/web/wp-content/backups/
+edu-craft/web/wp-content/cache/
+edu-craft/web/wp-content/debug.log
+
+# Drop-in object cache (often symlinked / generated)
+edu-craft/web/wp-content/object-cache.php
+
+# -----------------------------------------------------------------------------
+# Node / front-end builds (themes & plugins)
+# -----------------------------------------------------------------------------
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Theme: keep built CSS/JS in dist/, ignore source maps only (matches theme .gitignore)
+edu-craft/web/wp-content/themes/edu-craft-theme/dist/**/*.map
+
+# -----------------------------------------------------------------------------
+# PHP / Composer (plugins/themes that ship Composer deps locally)
+# -----------------------------------------------------------------------------
+**/vendor/

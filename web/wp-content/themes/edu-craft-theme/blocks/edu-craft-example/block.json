@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/edu-craft-example",
+	"title": "Edu Craft Example",
+	"description": "ACF-powered demo block with Interactivity API state/actions.",
+	"category": "widgets",
+	"icon": "welcome-learn-more",
+	"keywords": [ "education", "interactive", "acf" ],
+	"style": "file:../../dist/css/edu-craft-example.css",
+	"editorStyle": "file:../../dist/css/edu-craft-example-editor.css",
+	"viewScriptModule": "file:./script.js",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "index.php",
+		"blockVersion": 3
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"jsx": true
+	}
+}
