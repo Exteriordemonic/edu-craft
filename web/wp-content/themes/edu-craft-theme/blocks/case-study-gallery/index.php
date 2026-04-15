@@ -61,11 +61,15 @@ if ( empty( $images_context ) ) {
 	return;
 }
 
+$first_image = $images_context[0];
+
 $gallery_context = array(
-	'images'  => $images_context,
-	'current' => 0,
-	'isOpen'  => false,
-	'counter' => sprintf(
+	'images'       => $images_context,
+	'current'      => 0,
+	'isOpen'       => false,
+	'lightboxSrc'  => $first_image['src'] ?? '',
+	'lightboxAlt'  => $first_image['alt'] ?? '',
+	'counter'      => sprintf(
 		/* translators: 1: current image index, 2: total image count. */
 		__( '%1$d / %2$d', 'edu-craft-theme' ),
 		1,
@@ -83,15 +87,12 @@ $gallery_context = array(
 	<div class="row g-3">
 		<?php foreach ( $image_ids as $index => $image_id ) : ?>
 			<div class="col-12 col-md-6 col-lg-4">
-				<?php
-				$button_context = array( 'index' => (int) $index );
-				?>
 				<div class="ratio ratio-4x3 rounded-2 border border-secondary-subtle overflow-hidden bg-body-secondary shadow-sm">
 					<button
 						type="button"
 						class="cs-gallery__item btn btn-light position-absolute top-0 start-0 w-100 h-100 rounded-0 border-0 p-0 shadow-none text-reset"
 						data-wp-on--click="actions.open"
-						data-wp-context='<?php echo esc_attr( wp_json_encode( $button_context ) ); ?>'
+						data-index="<?php echo esc_attr( (string) $index ); ?>"
 						aria-label="<?php echo esc_attr( sprintf( __( 'Open image %d', 'edu-craft-theme' ), $index + 1 ) ); ?>"
 					>
 						<?php
@@ -141,10 +142,10 @@ $gallery_context = array(
 		<div class="cs-lightbox__img-wrap d-flex align-items-center justify-content-center flex-grow-1 min-w-0 mx-2">
 			<img
 				class="rounded d-block mw-100"
-				data-wp-bind--src="context.images[context.current].src"
-				data-wp-bind--alt="context.images[context.current].alt"
-				alt=""
-				src=""
+				data-wp-bind--src="context.lightboxSrc"
+				data-wp-bind--alt="context.lightboxAlt"
+				alt="<?php echo esc_attr( $first_image['alt'] ?? '' ); ?>"
+				src="<?php echo esc_url( $first_image['src'] ?? '' ); ?>"
 			/>
 		</div>
 

@@ -1,24 +1,24 @@
 import { store, getContext, getElement } from '@wordpress/interactivity';
 
-const LIGHTBOX_SELECTOR = '[data-wp-interactive="edu-craft/case-study-gallery"]';
-
 store('edu-craft/case-study-gallery', {
 	actions: {
 		open() {
-			const buttonContext = getContext();
 			const { ref } = getElement();
-			const section = ref.closest(LIGHTBOX_SELECTOR);
+			const context = getContext();
+			const images = Array.isArray(context.images) ? context.images : [];
 
-			if (!section) {
+			if (!images.length) {
 				return;
 			}
 
-			const rootContext = getContext(section);
-			const nextIndex = Number.isInteger(buttonContext.index) ? buttonContext.index : 0;
+			const parsedIndex = Number.parseInt(ref?.dataset?.index ?? '', 10);
+			const nextIndex = Number.isInteger(parsedIndex) ? parsedIndex : 0;
+			const boundedIndex = Math.min(Math.max(nextIndex, 0), images.length - 1);
 
-			rootContext.current = nextIndex;
-			rootContext.isOpen = true;
-			rootContext.counter = `${nextIndex + 1} / ${rootContext.images.length}`;
+			context.current = boundedIndex;
+			context.isOpen = true;
+			context.counter = `${boundedIndex + 1} / ${images.length}`;
+			syncLightboxImage(context);
 
 			document.addEventListener('keydown', handleKeydown);
 		},
@@ -38,6 +38,7 @@ store('edu-craft/case-study-gallery', {
 
 			context.current = (context.current + 1) % context.images.length;
 			context.counter = `${context.current + 1} / ${context.images.length}`;
+			syncLightboxImage(context);
 		},
 
 		prev() {
@@ -49,6 +50,7 @@ store('edu-craft/case-study-gallery', {
 
 			context.current = (context.current - 1 + context.images.length) % context.images.length;
 			context.counter = `${context.current + 1} / ${context.images.length}`;
+			syncLightboxImage(context);
 		},
 
 		onKeydown(event) {
@@ -57,6 +59,27 @@ store('edu-craft/case-study-gallery', {
 		},
 	},
 });
+
+/**
+ * Bindings only support dot paths (e.g. context.lightboxSrc), not bracket indexing.
+ */
+function syncLightboxImage(context) {
+	const images = Array.isArray(context.images) ? context.images : [];
+	if (!images.length) {
+		context.lightboxSrc = '';
+		context.lightboxAlt = '';
+		return;
+	}
+
+	const rawIndex = Number(context.current);
+	const index = Number.isInteger(rawIndex)
+		? Math.min(Math.max(rawIndex, 0), images.length - 1)
+		: 0;
+	const item = images[index];
+
+	context.lightboxSrc = item?.src ?? '';
+	context.lightboxAlt = item?.alt ?? '';
+}
 
 function handleKeydown(event) {
 	if (event.key === 'Escape') {
