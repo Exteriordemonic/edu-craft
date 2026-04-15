@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/case-study-hero",
+	"title": "Case Study Hero",
+	"category": "theme",
+	"description": "Template-only hero block for single Case Study view.",
+	"textdomain": "edu-craft-theme",
+	"style": "file:../../dist/css/case-study-hero.css",
+	"supports": {
+		"html": false,
+		"inserter": false
+	},
+	"render": "file:./index.php"
+}
