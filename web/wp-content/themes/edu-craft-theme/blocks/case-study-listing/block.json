@@ -10,7 +10,8 @@
 	"viewScriptModule": "file:./script.js",
 	"supports": {
 		"html": false,
-		"inserter": false
+		"inserter": false,
+		"interactivity": true
 	},
 	"render": "file:./index.php"
 }
