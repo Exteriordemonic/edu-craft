@@ -94,7 +94,7 @@ Register the core content model for Case Studies.
 
 ---
 
-## Task 03 — ACF fields for Case Study
+✅ ## Task 03 — ACF fields for Case Study
 
 ### Branch
 `feature/case-study-acf-fields`
