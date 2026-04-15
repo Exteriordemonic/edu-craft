@@ -87,7 +87,7 @@ $filters = array_merge(
 
 		<p
 			class="text-secondary py-5 text-center mb-0 edu-craft-csa-empty"
-			data-wp-class--d-none="state.invalidIndustry || state.items.length > 0 || state.isLoading"
+			data-wp-class--d-none="callbacks.hideEmptyArchiveMessage"
 		><?php esc_html_e( 'No case studies yet.', 'edu-craft-theme' ); ?></p>
 	</div>
 </div>

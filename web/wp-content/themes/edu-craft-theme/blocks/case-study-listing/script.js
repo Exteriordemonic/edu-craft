@@ -109,20 +109,88 @@ function renderCards(items = []) {
 	return holder.innerHTML;
 }
 
+function syncIndustryUrlQuery(slug) {
+	const param = archiveState.queryParam || 'industry';
+	const url = new URL(window.location.href);
+	if (slug) {
+		url.searchParams.set(param, slug);
+	} else {
+		url.searchParams.delete(param);
+	}
+	window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+}
+
 const { state: archiveState } = store('eduCraftCaseStudyArchive', {
 	callbacks: {
 		isIndustryActive() {
 			const context = getContext();
 			return archiveState.activeIndustry === context.slug;
 		},
+
+		hideEmptyArchiveMessage() {
+			return (
+				archiveState.invalidIndustry ||
+				archiveState.items.length > 0 ||
+				archiveState.isLoading
+			);
+		},
 	},
 
 	actions: {
-		selectIndustry() {
+		*selectIndustry() {
 			const context = getContext();
-			archiveState.activeIndustry = context.slug;
+			const slug = context.slug;
 
-			console.log("test", context.slug)
+			archiveState.activeIndustry = slug;
+			archiveState.isLoading = true;
+
+			const restBase = archiveState.restUrl;
+			if (!restBase) {
+				archiveState.isLoading = false;
+				return;
+			}
+
+			const requestUrl = new URL(restBase, window.location.origin);
+			if (slug) {
+				requestUrl.searchParams.set('industry', slug);
+			} else {
+				requestUrl.searchParams.delete('industry');
+			}
+			requestUrl.searchParams.set('per_page', '20');
+
+			try {
+				const response = yield fetch(requestUrl.toString(), {
+					method: 'GET',
+					credentials: 'same-origin',
+					headers: {
+						Accept: 'application/json',
+						...(archiveState.nonce
+							? { 'X-WP-Nonce': archiveState.nonce }
+							: {}),
+					},
+				});
+
+				if (!response.ok) {
+					throw new Error(`HTTP ${response.status}`);
+				}
+
+				const data = yield response.json();
+				const items = Array.isArray(data.items) ? data.items : [];
+
+				archiveState.items = items;
+				archiveState.invalidIndustry = Boolean(data.invalid_industry);
+
+				const grid = document.getElementById('edu-craft-csa-grid');
+				if (grid) {
+					grid.innerHTML = renderCards(items);
+				}
+
+				syncIndustryUrlQuery(slug);
+			} catch {
+				archiveState.invalidIndustry = false;
+			} finally {
+				archiveState.isLoading = false;
+			}
 		},
 	},
 });
