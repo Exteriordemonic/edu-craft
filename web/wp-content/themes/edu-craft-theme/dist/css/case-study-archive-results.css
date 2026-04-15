@@ -1,1 +1,18 @@
-.case-study-archive-results{position:relative}.edu-craft-csa-card__image-link{display:block;max-height:220px}.edu-craft-csa-card .cs-industry-badge{position:relative;z-index:2}
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./blocks/case-study-archive-results/style.scss ***!
+  \*********************************************************************************************************************************************************************************/
+.case-study-archive-results {
+  position: relative;
+}
+
+.edu-craft-csa-card__image-link {
+  display: block;
+  max-height: 220px;
+}
+
+.edu-craft-csa-card .cs-industry-badge {
+  position: relative;
+  z-index: 2;
+}
+
+/*# sourceMappingURL=case-study-archive-results.css.map*/

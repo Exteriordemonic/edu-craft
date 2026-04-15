@@ -1,1 +1,26 @@
-.cs-lightbox{display:none;z-index:1055}.cs-lightbox.is-open{display:flex}.cs-lightbox__nav{min-height:3rem;min-width:3rem;transition:transform .15s ease,box-shadow .15s ease}.cs-lightbox__nav:hover{transform:scale(1.05)}.cs-lightbox__img-wrap img{max-height:82vh;max-width:min(82vw,100%)}
+/*!*************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./blocks/case-study-gallery/style.scss ***!
+  \*************************************************************************************************************************************************************************/
+.cs-lightbox {
+  display: none;
+  z-index: 1055;
+}
+.cs-lightbox.is-open {
+  display: flex;
+}
+
+.cs-lightbox__nav {
+  min-width: 3rem;
+  min-height: 3rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.cs-lightbox__nav:hover {
+  transform: scale(1.05);
+}
+
+.cs-lightbox__img-wrap img {
+  max-width: min(82vw, 100%);
+  max-height: 82vh;
+}
+
+/*# sourceMappingURL=case-study-gallery.css.map*/
