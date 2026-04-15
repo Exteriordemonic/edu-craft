@@ -265,7 +265,7 @@ Add conditional NIP handling in checkout based on cart product categories.
 
 ---
 
-## Task 07 — Demo content setup with DDEV + WP-CLI
+✅ ## Task 07 — Demo content setup with DDEV + WP-CLI
 
 ### Branch
 `feature/demo-content-setup`
