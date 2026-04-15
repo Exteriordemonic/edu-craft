@@ -7,7 +7,7 @@ Each task includes a clear goal, scope, out-of-scope section, success story, and
 
 ---
 
-## Task 01 — Domain plugin setup
+✅ ## Task 01 — Domain plugin setup
 
 ### Branch
 `feature/domain-plugin-setup`
@@ -54,7 +54,7 @@ Create a project-specific domain plugin named `edu-craft-domain` and prepare a c
 
 ---
 
-## Task 02 — Case Study CPT and Industry taxonomy
+✅ ## Task 02 — Case Study CPT and Industry taxonomy
 
 ### Branch
 `feature/case-study-cpt-taxonomy`
