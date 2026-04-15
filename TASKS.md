@@ -178,7 +178,7 @@ Build a minimal, readable single Case Study page using the existing FSE-first th
 
 ---
 
-## Task 05 — Archive Case Study template with filter UI
+✅ ## Task 05 — Archive Case Study template with filter UI
 
 ### Branch
 `feature/case-study-archive-filter`
