@@ -32,4 +32,4 @@ function edu_craft_lazy_load_images( $value, $image, $context ) {
 
 	return $value;
 }
-add_filter( 'wp_img_tag_add_loading_attr', 'edu_craft_lazy_load_images' );
+add_filter( 'wp_img_tag_add_loading_attr', 'edu_craft_lazy_load_images', 10, 3 );
