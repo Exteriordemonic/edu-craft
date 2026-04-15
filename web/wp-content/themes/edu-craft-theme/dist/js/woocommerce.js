@@ -1,18 +1,1 @@
-/******/ (function() { // webpackBootstrap
-/*!*******************************!*\
-  !*** ./src/js/woocommerce.js ***!
-  \*******************************/
-const cartToggleButton = document.querySelector('.js-edu-craft-cart-toggle');
-const cartPanel = document.querySelector('.js-edu-craft-cart-panel');
-
-if (cartToggleButton && cartPanel) {
-	cartToggleButton.addEventListener('click', () => {
-		const isOpen = cartPanel.getAttribute('aria-hidden') === 'false';
-		cartPanel.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
-		cartToggleButton.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-	});
-}
-
-/******/ })()
-;
-//# sourceMappingURL=woocommerce.js.map
+!function(){const e=document.querySelector(".js-edu-craft-cart-toggle"),t=document.querySelector(".js-edu-craft-cart-panel");e&&t&&e.addEventListener("click",()=>{const r="false"===t.getAttribute("aria-hidden");t.setAttribute("aria-hidden",r?"true":"false"),e.setAttribute("aria-expanded",r?"false":"true")})}();

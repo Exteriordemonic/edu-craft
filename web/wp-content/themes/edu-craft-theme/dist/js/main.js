@@ -1,13 +1,1 @@
-/******/ (function() { // webpackBootstrap
-/*!************************!*\
-  !*** ./src/js/main.js ***!
-  \************************/
-const root = document.documentElement;
-
-if (root) {
-	root.classList.add('edu-craft-js-ready');
-}
-
-/******/ })()
-;
-//# sourceMappingURL=main.js.map
+!function(){const t=document.documentElement;t&&t.classList.add("edu-craft-js-ready")}();

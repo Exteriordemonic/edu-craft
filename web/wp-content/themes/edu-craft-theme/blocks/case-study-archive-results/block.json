@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/case-study-archive-results",
+	"title": "Case Study Archive Results",
+	"category": "theme",
+	"description": "Case Study archive results grid.",
+	"textdomain": "edu-craft-theme",
+	"style": "file:../../dist/css/case-study-archive-results.css",
+	"viewScriptModule": "file:../case-study-archive-store/script.js",
+	"supports": {
+		"html": false,
+		"inserter": false
+	},
+	"render": "file:./index.php"
+}
