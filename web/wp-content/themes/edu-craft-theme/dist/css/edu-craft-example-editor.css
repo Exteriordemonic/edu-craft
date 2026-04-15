@@ -1,9 +1,1 @@
-/*!*************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./blocks/edu-craft-example/editor.scss ***!
-  \*************************************************************************************************************************************************************************/
-.wp-block-acf-edu-craft-example {
-  outline: 1px dashed #adb5bd;
-  outline-offset: 4px;
-}
-
-/*# sourceMappingURL=edu-craft-example-editor.css.map*/
+.wp-block-acf-edu-craft-example{outline:1px dashed #adb5bd;outline-offset:4px}
