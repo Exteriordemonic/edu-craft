@@ -317,7 +317,7 @@ Prepare final review-ready documentation and cleanup.
 - explain plugin vs theme decision
 - explain REST + Interactivity API decision
 - explain manual NIP validation decision
-- explain ACF Free vs ACF Pro note
+- explain ACF Pro usage decision
 - ensure setup instructions are complete
 - perform final documentation cleanup
 

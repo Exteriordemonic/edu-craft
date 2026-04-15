@@ -69,19 +69,19 @@ Validation includes:
 
 ---
 
-## 5. ACF Free vs ACF Pro note
+## 5. ACF Pro usage note
 
-The assignment assumes ACF Free.
+This project uses ACF Pro (license provided by the project owner).
 
-For this implementation I used ACF in a way that works within that constraint.
+I used ACF Pro capabilities where they improve editor experience while keeping the implementation practical and review-friendly.
 
-If I were using ACF Pro, I would consider improvements such as:
+ACF Pro is especially useful here for:
 
 - more flexible gallery handling
 - additional reusable block patterns
-- potentially more advanced editorial UX depending on final content needs
+- stronger editorial UX where needed
 
-For this task I intentionally avoided overengineering around ACF and kept the implementation practical.
+The implementation still avoids overengineering and keeps field setup focused on assignment scope.
 
 ---
 

@@ -10,7 +10,7 @@ Project plugin for EduCraft domain/business logic.
 
 ## Runtime requirements
 
-- Advanced Custom Fields PRO
+- Advanced Custom Fields (Free or Pro)
 - WooCommerce
 
 If dependencies are missing:

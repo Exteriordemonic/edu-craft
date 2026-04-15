@@ -110,9 +110,9 @@ Case Study should support the following data:
 
 ### Notes
 
-- ACF Free is assumed in the task context
+- ACF Pro is used in this project (license provided by project owner)
 - field groups should be stored via **ACF JSON**
-- if a field would benefit from ACF Pro, mention this in final notes
+- implementation may use ACF Pro field capabilities where they improve editor UX
 
 ---
 

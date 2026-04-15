@@ -250,7 +250,7 @@ Prepare final documentation and review pass.
 - plugin vs theme reasoning
 - REST + Interactivity API reasoning
 - manual NIP validation reasoning
-- ACF Free vs Pro note
+- ACF Pro usage note
 - known tradeoffs / future improvements
 
 ### Success criteria

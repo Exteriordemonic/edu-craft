@@ -18,6 +18,7 @@ define( 'EDU_CRAFT_DOMAIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'EDU_CRAFT_DOMAIN_URL', plugin_dir_url( __FILE__ ) );
 
 require_once EDU_CRAFT_DOMAIN_PATH . 'includes/helpers/dependencies.php';
+require_once EDU_CRAFT_DOMAIN_PATH . 'includes/acf/register.php';
 require_once EDU_CRAFT_DOMAIN_PATH . 'includes/post-types/register.php';
 require_once EDU_CRAFT_DOMAIN_PATH . 'includes/taxonomies/register.php';
 require_once EDU_CRAFT_DOMAIN_PATH . 'includes/woocommerce/hooks.php';
@@ -40,6 +41,7 @@ function edu_craft_domain_boot() {
 
 	edu_craft_domain_register_post_types();
 	edu_craft_domain_register_taxonomies();
+	edu_craft_domain_register_acf_hooks();
 	edu_craft_domain_register_woocommerce_hooks();
 	edu_craft_domain_register_rest_routes();
 	edu_craft_domain_register_admin_hooks();
