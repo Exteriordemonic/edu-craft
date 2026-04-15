@@ -24,8 +24,8 @@ function edu_craft_theme_setup() {
 
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary Navigation', 'edu-craft-theme' ),
-			'footer'  => esc_html__( 'Footer Navigation', 'edu-craft-theme' ),
+			'primary-menu' => esc_html__( 'Primary Navigation', 'edu-craft-theme' ),
+			'footer'         => esc_html__( 'Footer Navigation', 'edu-craft-theme' ),
 		)
 	);
 }
