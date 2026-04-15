@@ -48,10 +48,15 @@ function edu_craft_domain_boot() {
 	edu_craft_domain_register_post_types();
 	edu_craft_domain_register_taxonomies();
 	edu_craft_domain_register_acf_hooks();
-	edu_craft_domain_register_woocommerce_hooks();
 	edu_craft_domain_register_rest_routes();
 	edu_craft_domain_register_admin_hooks();
 	edu_craft_domain_register_cli_commands();
+}
+
+function edu_craft_domain_boot_wc() {
+	// This function can be used to initialize WC-specific hooks after translation loads,
+	// mirroring how general plugin boot is scheduled.
+	edu_craft_domain_register_woocommerce_hooks();
 }
 
 /**
@@ -69,5 +74,7 @@ function edu_craft_domain_schedule_boot() {
 
 	add_action( 'init', 'edu_craft_domain_load_textdomain', 0 );
 	add_action( 'init', 'edu_craft_domain_boot', 1 );
+
+	add_action( 'wp_loaded', 'edu_craft_domain_boot_wc', 10 );
 }
 add_action( 'plugins_loaded', 'edu_craft_domain_schedule_boot', 5 );

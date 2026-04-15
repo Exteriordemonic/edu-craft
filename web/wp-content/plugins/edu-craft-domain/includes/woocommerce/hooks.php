@@ -9,13 +9,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once __DIR__ . '/checkout-nip-field.php';
+
 /**
  * Registers WooCommerce hooks.
  *
  * @return void
  */
 function edu_craft_domain_register_woocommerce_hooks() {
-	require_once EDU_CRAFT_DOMAIN_PATH . 'includes/woocommerce/nip-validator.php';
-	require_once EDU_CRAFT_DOMAIN_PATH . 'includes/woocommerce/checkout-nip.php';
-	edu_craft_domain_boot_checkout_nip();
+	edu_craft_domain_register_checkout_nip_field();
 }
