@@ -62,7 +62,7 @@ function edu_craft_domain_register_case_study_post_type() {
 			'slug' => 'case-study',
 		),
 		'capability_type'    => 'post',
-		'has_archive'        => true,
+		'has_archive'        => 'case-studies',
 		'hierarchical'       => false,
 		'menu_position'      => 20,
 		'menu_icon'          => 'dashicons-portfolio',

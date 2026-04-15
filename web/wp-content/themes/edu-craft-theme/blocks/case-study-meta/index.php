@@ -54,14 +54,21 @@ $row_total = count( $visible_rows );
 		<div class="cs-meta-card__row<?php echo esc_attr( $row_class ); ?>">
 			<span class="cs-meta-card__label"><?php esc_html_e( 'Industry', 'edu-craft-theme' ); ?></span>
 			<div class="cs-meta-card__badges">
-				<?php foreach ( $industries as $industry ) : ?>
-					<a href="<?php echo esc_url( get_term_link( $industry ) ); ?>" class="cs-industry-badge">
-						<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-							<circle cx="5" cy="5" r="4.5" stroke="currentColor"/>
-						</svg>
-						<?php echo esc_html( $industry->name ); ?>
-					</a>
-				<?php endforeach; ?>
+				<?php
+				foreach ( $industries as $industry ) :
+					$term_link = get_term_link( $industry );
+					if ( is_wp_error( $term_link ) ) {
+						continue;
+					}
+					edu_craft_render_industry_badge(
+						array(
+							'name'      => $industry->name,
+							'link'      => $term_link,
+							'show_icon' => true,
+						)
+					);
+				endforeach;
+				?>
 			</div>
 		</div>
 	<?php endif; ?>

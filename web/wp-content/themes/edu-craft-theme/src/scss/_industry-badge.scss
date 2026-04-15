@@ -17,3 +17,9 @@
 		color: var(--bs-body-color);
 	}
 }
+
+// Above stretched-link title on case study archive cards.
+.edu-craft-csa-card .cs-industry-badge {
+	position: relative;
+	z-index: 2;
+}

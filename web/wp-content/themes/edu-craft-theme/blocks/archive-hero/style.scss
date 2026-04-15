@@ -1,0 +1,21 @@
+.archive-hero {
+	border-bottom: 1px solid var(--bs-border-color, rgba(0, 0, 0, 0.08));
+	padding-bottom: 1.5rem;
+
+	@media (min-width: 992px) {
+		padding-bottom: 2rem;
+	}
+
+	&.alignfull {
+		padding-inline: var(--wp--style--root--padding-left, 1rem);
+		padding-inline-end: var(--wp--style--root--padding-right, 1rem);
+	}
+
+	&__title {
+		letter-spacing: -0.02em;
+	}
+
+	&__description {
+		max-width: 42rem;
+	}
+}

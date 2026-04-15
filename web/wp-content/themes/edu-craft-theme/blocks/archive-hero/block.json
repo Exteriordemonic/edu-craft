@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/archive-hero",
+	"title": "Archive Hero",
+	"category": "theme",
+	"description": "Heading and intro for archive templates (post type, taxonomy, blog index).",
+	"textdomain": "edu-craft-theme",
+	"style": "file:../../dist/css/archive-hero.css",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"default": ""
+		},
+		"headingLevel": {
+			"type": "number",
+			"default": 1
+		}
+	},
+	"supports": {
+		"html": false,
+		"inserter": false,
+		"align": [ "wide", "full" ]
+	},
+	"render": "file:./index.php"
+}
