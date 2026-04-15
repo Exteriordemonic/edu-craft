@@ -1,0 +1,15 @@
+@use "../../src/scss/industry-badge";
+
+.case-study-hero {
+	&__image {
+		height: 340px;
+	}
+
+	&__overlay {
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+	}
+
+	&__industry-icon {
+		opacity: 0.4;
+	}
+}
