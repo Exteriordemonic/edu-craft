@@ -27,18 +27,24 @@ require_once EDU_CRAFT_DOMAIN_PATH . 'includes/admin/hooks.php';
 require_once EDU_CRAFT_DOMAIN_PATH . 'includes/cli/commands.php';
 
 /**
+ * Loads translations on init (required for WordPress 6.7+; avoids just-in-time loading notices).
+ *
+ * @return void
+ */
+function edu_craft_domain_load_textdomain() {
+	load_plugin_textdomain(
+		'edu-craft-domain',
+		false,
+		dirname( plugin_basename( __FILE__ ) ) . '/languages'
+	);
+}
+
+/**
  * Boots plugin modules after dependency checks.
  *
  * @return void
  */
 function edu_craft_domain_boot() {
-	$missing_dependencies = edu_craft_domain_get_missing_dependencies();
-
-	if ( ! empty( $missing_dependencies ) ) {
-		edu_craft_domain_boot_dependency_error_handlers( $missing_dependencies );
-		return;
-	}
-
 	edu_craft_domain_register_post_types();
 	edu_craft_domain_register_taxonomies();
 	edu_craft_domain_register_acf_hooks();
@@ -47,4 +53,21 @@ function edu_craft_domain_boot() {
 	edu_craft_domain_register_admin_hooks();
 	edu_craft_domain_register_cli_commands();
 }
-add_action( 'plugins_loaded', 'edu_craft_domain_boot' );
+
+/**
+ * Schedules bootstrap so translated strings run after load_plugin_textdomain (init).
+ *
+ * @return void
+ */
+function edu_craft_domain_schedule_boot() {
+	$missing_dependencies = edu_craft_domain_get_missing_dependencies();
+
+	if ( ! empty( $missing_dependencies ) ) {
+		edu_craft_domain_boot_dependency_error_handlers( $missing_dependencies );
+		return;
+	}
+
+	add_action( 'init', 'edu_craft_domain_load_textdomain', 0 );
+	add_action( 'init', 'edu_craft_domain_boot', 1 );
+}
+add_action( 'plugins_loaded', 'edu_craft_domain_schedule_boot', 5 );
