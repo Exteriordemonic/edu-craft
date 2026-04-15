@@ -1,3 +1,12 @@
+@use "../../src/scss/industry-badge";
+
+
+.case-study-archive-filter {
+	.btn {
+		min-height: 2rem;
+	}
+}
+
 .case-study-archive-results {
 	position: relative;
 }
@@ -5,10 +14,4 @@
 .edu-craft-csa-card__image-link {
 	display: block;
 	max-height: 220px;
-}
-
-
-.edu-craft-csa-card .cs-industry-badge {
-	position: relative;
-	z-index: 2;
 }

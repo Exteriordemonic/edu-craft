@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once EDU_CRAFT_THEME_PATH . 'components/industry-badge.php';
+
 /**
  * Resolves the Case Study post ID for template-only dynamic blocks.
  *
@@ -133,60 +135,16 @@ function edu_craft_case_study_archive_bootstrap_store() {
 }
 
 /**
- * Renders a Case Study card for archive lists (SSR or hydrated).
+ * Renders a Case Study card for archive lists (SSR, or shell inside the HTML template element when $template_shell is true).
  *
  * @param array<string,mixed> $item Item data (REST/plugin shape).
+ * @param bool                $template_shell When true, renders the clone source used by {@see edu_craft_case_study_base_loop_the_template()}.
  * @return void
  */
-function edu_craft_render_case_study_archive_card( array $item ) {
-	$title     = isset( $item['title'] ) ? (string) $item['title'] : '';
-	$permalink = isset( $item['permalink'] ) ? (string) $item['permalink'] : '#';
-	$excerpt   = isset( $item['excerpt'] ) ? (string) $item['excerpt'] : '';
-	$thumb     = isset( $item['thumbnail'] ) && is_array( $item['thumbnail'] ) ? $item['thumbnail'] : null;
-	$inds      = isset( $item['industries'] ) && is_array( $item['industries'] ) ? $item['industries'] : array();
-	?>
-	<div class="col-12 col-md-6 col-lg-4">
-		<article class="card h-100 shadow-sm border-0 edu-craft-csa-card">
-			<?php if ( $thumb && ! empty( $thumb['src'] ) ) : ?>
-				<a href="<?php echo esc_url( $permalink ); ?>" class="ratio ratio-16x9 edu-craft-csa-card__image-link bg-light">
-					<img
-						src="<?php echo esc_url( $thumb['src'] ); ?>"
-						alt="<?php echo esc_attr( isset( $thumb['alt'] ) ? (string) $thumb['alt'] : $title ); ?>"
-						class="card-img-top object-fit-cover h-100 rounded-top"
-						loading="lazy"
-					/>
-				</a>
-			<?php endif; ?>
-			<div class="card-body d-flex flex-column">
-				<h3 class="h5 card-title">
-					<a href="<?php echo esc_url( $permalink ); ?>" class="stretched-link text-decoration-none text-dark"><?php echo esc_html( $title ); ?></a>
-				</h3>
-				<?php if ( $excerpt !== '' ) : ?>
-					<p class="card-text text-secondary small"><?php echo esc_html( $excerpt ); ?></p>
-				<?php endif; ?>
-				<?php if ( ! empty( $inds ) ) : ?>
-					<div class="d-flex flex-wrap gap-2 mt-auto pt-2">
-						<?php foreach ( $inds as $ind ) : ?>
-							<?php
-							if ( ! is_array( $ind ) ) {
-								continue;
-							}
-							$name = isset( $ind['name'] ) ? (string) $ind['name'] : '';
-							$link = isset( $ind['link'] ) ? (string) $ind['link'] : '';
-							if ( $name === '' ) {
-								continue;
-							}
-							if ( $link !== '' ) :
-								?>
-								<a href="<?php echo esc_url( $link ); ?>" class="cs-industry-badge" tabindex="-1"><?php echo esc_html( $name ); ?></a>
-							<?php else : ?>
-								<span class="cs-industry-badge"><?php echo esc_html( $name ); ?></span>
-							<?php endif; ?>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-			</div>
-		</article>
-	</div>
-	<?php
+function edu_craft_render_case_study_archive_card( array $item, $template_shell = false ) {
+	$edu_craft_case_study_card_item           = $item;
+	$edu_craft_case_study_card_template_shell = (bool) $template_shell;
+	require EDU_CRAFT_THEME_PATH . 'components/case-study-card.php';
 }
+
+require_once EDU_CRAFT_THEME_PATH . 'components/case-study-base-loop.php';
