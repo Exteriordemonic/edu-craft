@@ -16,6 +16,42 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function edu_craft_domain_register_taxonomies() {
 	add_action( 'init', 'edu_craft_domain_register_industry_taxonomy' );
+	add_filter( 'term_link', 'edu_craft_domain_industry_term_link_to_case_study_archive', 10, 3 );
+}
+
+/**
+ * Points industry term permalinks to the case study archive with an industry query arg.
+ *
+ * @param string $termlink Term link URL.
+ * @param mixed  $term    Term object or ID.
+ * @param string $taxonomy Taxonomy slug.
+ * @return string
+ */
+function edu_craft_domain_industry_term_link_to_case_study_archive( $termlink, $term, $taxonomy ) {
+	if ( 'industry' !== $taxonomy ) {
+		return $termlink;
+	}
+
+	$archive = get_post_type_archive_link( 'case_study' );
+	if ( ! $archive ) {
+		return $termlink;
+	}
+
+	$slug = '';
+	if ( is_object( $term ) && isset( $term->slug ) ) {
+		$slug = (string) $term->slug;
+	} elseif ( is_numeric( $term ) ) {
+		$resolved = get_term( (int) $term, 'industry' );
+		if ( $resolved instanceof WP_Term && ! is_wp_error( $resolved ) ) {
+			$slug = (string) $resolved->slug;
+		}
+	}
+
+	if ( '' === $slug ) {
+		return $termlink;
+	}
+
+	return add_query_arg( 'industry', $slug, $archive );
 }
 
 /**

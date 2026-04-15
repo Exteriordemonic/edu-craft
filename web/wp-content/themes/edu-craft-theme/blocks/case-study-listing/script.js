@@ -2,7 +2,29 @@ import { getContext, store } from '@wordpress/interactivity';
 
 const CARD_TEMPLATE_ID = 'edu-craft-csa-card-template';
 
+const SVG_NS = 'http://www.w3.org/2000/svg';
 
+/**
+ * Circle icon matching {@see edu_craft_render_industry_badge()} (PHP).
+ *
+ * @param {HTMLElement} badge Anchor or span.
+ */
+function appendIndustryBadgeIcon(badge) {
+	const svg = document.createElementNS(SVG_NS, 'svg');
+	svg.setAttribute('width', '10');
+	svg.setAttribute('height', '10');
+	svg.setAttribute('viewBox', '0 0 10 10');
+	svg.setAttribute('fill', 'none');
+	svg.setAttribute('aria-hidden', 'true');
+
+	const circle = document.createElementNS(SVG_NS, 'circle');
+	circle.setAttribute('cx', '5');
+	circle.setAttribute('cy', '5');
+	circle.setAttribute('r', '4.5');
+	circle.setAttribute('stroke', 'currentColor');
+	svg.append(circle);
+	badge.append(svg);
+}
 
 /**
  * Fill single card
@@ -78,7 +100,8 @@ function fillCard(col, item = {}) {
 			}
 
 			el.className = 'cs-industry-badge js-csa-card-badge';
-			el.textContent = name;
+			appendIndustryBadgeIcon(el);
+			el.append(document.createTextNode(name));
 
 			badges.append(el);
 		});
