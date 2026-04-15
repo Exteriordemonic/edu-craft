@@ -20,12 +20,14 @@ store('edu-craft/case-study-gallery', {
 			context.counter = `${boundedIndex + 1} / ${images.length}`;
 			syncLightboxImage(context);
 
+			lockBodyScroll();
 			document.addEventListener('keydown', handleKeydown);
 		},
 
 		close() {
 			const context = getContext();
 			context.isOpen = false;
+			unlockBodyScroll();
 			document.removeEventListener('keydown', handleKeydown);
 		},
 
@@ -79,6 +81,16 @@ function syncLightboxImage(context) {
 
 	context.lightboxSrc = item?.src ?? '';
 	context.lightboxAlt = item?.alt ?? '';
+}
+
+function lockBodyScroll() {
+	document.body.classList.add('overflow-hidden');
+	document.documentElement.classList.add('overflow-hidden');
+}
+
+function unlockBodyScroll() {
+	document.body.classList.remove('overflow-hidden');
+	document.documentElement.classList.remove('overflow-hidden');
 }
 
 function handleKeydown(event) {

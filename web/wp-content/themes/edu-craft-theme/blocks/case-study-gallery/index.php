@@ -123,18 +123,22 @@ $gallery_context = array(
 	>
 		<button
 			type="button"
-			class="cs-lightbox__close btn-close btn-close-white position-fixed top-0 end-0 m-4"
+			class="cs-lightbox__close btn btn-light rounded-circle shadow d-inline-flex align-items-center justify-content-center p-2 p-md-3 position-fixed top-0 end-0 m-3 m-md-4 border-0"
 			data-wp-on--click="actions.close"
 			aria-label="<?php esc_attr_e( 'Close', 'edu-craft-theme' ); ?>"
-		></button>
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="d-block text-dark" viewBox="0 0 16 16" aria-hidden="true">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+			</svg>
+		</button>
 
 		<button
 			type="button"
-			class="cs-lightbox__nav cs-lightbox__nav--prev btn btn-outline-light rounded-circle p-2 flex-shrink-0"
+			class="cs-lightbox__nav cs-lightbox__nav--prev btn btn-light rounded-circle shadow d-inline-flex align-items-center justify-content-center flex-shrink-0 p-3 mx-1 mx-md-2 border-0"
 			data-wp-on--click="actions.prev"
 			aria-label="<?php esc_attr_e( 'Previous', 'edu-craft-theme' ); ?>"
 		>
-			<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+			<svg width="22" height="22" viewBox="0 0 18 18" fill="none" class="d-block text-dark" aria-hidden="true">
 				<path d="M11 3 4 9l7 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 			</svg>
 		</button>
@@ -151,11 +155,11 @@ $gallery_context = array(
 
 		<button
 			type="button"
-			class="cs-lightbox__nav cs-lightbox__nav--next btn btn-outline-light rounded-circle p-2 flex-shrink-0"
+			class="cs-lightbox__nav cs-lightbox__nav--next btn btn-light rounded-circle shadow d-inline-flex align-items-center justify-content-center flex-shrink-0 p-3 mx-1 mx-md-2 border-0"
 			data-wp-on--click="actions.next"
 			aria-label="<?php esc_attr_e( 'Next', 'edu-craft-theme' ); ?>"
 		>
-			<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+			<svg width="22" height="22" viewBox="0 0 18 18" fill="none" class="d-block text-dark" aria-hidden="true">
 				<path d="M7 3l7 6-7 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 			</svg>
 		</button>
