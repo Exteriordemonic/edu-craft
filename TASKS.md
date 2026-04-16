@@ -222,7 +222,7 @@ Implement Case Study archive filtering without full page reload using REST API +
 
 ---
 
-## Task 06 — WooCommerce B2B NIP checkout logic
+✅ ## Task 06 — WooCommerce B2B NIP checkout logic
 
 ### Branch
 `feature/woo-b2b-nip-checkout`

@@ -42,6 +42,11 @@ function edu_craft_domain_boot_dependency_error_handlers( array $missing_depende
 		implode( ', ', $missing_dependencies )
 	);
 
+	if ( defined( 'WP_CLI' ) && WP_CLI ) {
+		WP_CLI::warning( $message );
+		return;
+	}
+
 	if ( is_admin() ) {
 		add_action(
 			'admin_notices',
