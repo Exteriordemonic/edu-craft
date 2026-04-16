@@ -28,6 +28,10 @@ define( 'NONCE_SALT', 'CFbexIjcIpHJPaIuhQtDEVGUCFznzYVLgqfFaKSGMCmyBpZcxgTcLzsVg
 /** Domyślny locale (np. przed instalacją). Po instalacji język bierze się z bazy (Ustawienia → Ogólne) lub WP-CLI. */
 define( 'WPLANG', 'pl_PL' );
 
+/** Produkcja: deploy/db.production.env (nie commitowany) — patrz deploy/db.production.env.example */
+if ( is_readable( __DIR__ . '/wp-config-deploy-env.php' ) ) {
+	require_once __DIR__ . '/wp-config-deploy-env.php';
+}
 
 /* That's all, stop editing! Happy publishing. */
 
