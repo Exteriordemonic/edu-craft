@@ -1,0 +1,8 @@
+// Minimal Bootstrap preload for block-level SCSS files.
+// Includes only prerequisites for responsive mixins and design tokens,
+// without importing component CSS.
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins/breakpoints";

@@ -1,0 +1,26 @@
+// Lightbox: .is-open is toggled by Interactivity API; BS has no single utility for display:none → flex.
+// z-index: BS utilities top out at z-3; modal-level stacking avoids overlap with header/nav.
+.cs-lightbox {
+	display: none;
+	z-index: 1055;
+
+	&.is-open {
+		display: flex;
+	}
+}
+
+.cs-lightbox__nav {
+	min-width: 3rem;
+	min-height: 3rem;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+// Overlay image: cap to viewport (no BS utility for 82vh/82vw).
+.cs-lightbox__img-wrap img {
+	max-width: min(82vw, 100%);
+	max-height: 82vh;
+}

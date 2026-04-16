@@ -1,0 +1,1 @@
+.cs-lightbox{display:none;z-index:1055}.cs-lightbox.is-open{display:flex}.cs-lightbox__nav{min-height:3rem;min-width:3rem;transition:transform .15s ease,box-shadow .15s ease}.cs-lightbox__nav:hover{transform:scale(1.05)}.cs-lightbox__img-wrap img{max-height:82vh;max-width:min(82vw,100%)}

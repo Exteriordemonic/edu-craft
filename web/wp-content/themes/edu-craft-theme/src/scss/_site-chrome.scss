@@ -1,0 +1,39 @@
+.site-header {
+	.wp-block-site-title a {
+		color: $dark;
+		text-decoration: none;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+
+	.wp-block-navigation {
+		.wp-block-navigation-item__content {
+			font-weight: 500;
+		}
+	}
+}
+
+.site-footer {
+	.wp-block-site-title a {
+		color: $white;
+		text-decoration: none;
+
+		&:hover {
+			color: rgba($white, 0.9);
+		}
+	}
+
+	.wp-block-navigation {
+		.wp-block-navigation-item__content {
+			color: rgba($white, 0.75);
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				color: $white;
+			}
+		}
+	}
+}

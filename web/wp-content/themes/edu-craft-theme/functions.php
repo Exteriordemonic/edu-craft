@@ -40,6 +40,7 @@ add_action( 'after_setup_theme', function() {
 $edu_craft_theme_includes = array(
 	'inc/setup.php',
 	'inc/enqueue.php',
+	'inc/block-helpers.php',
 	'inc/blocks.php',
 	'inc/acf.php',
 	'inc/woocommerce.php',

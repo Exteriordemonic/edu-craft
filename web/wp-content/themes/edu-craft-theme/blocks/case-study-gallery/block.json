@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/case-study-gallery",
+	"title": "Case Study Gallery",
+	"category": "theme",
+	"description": "Template-only gallery block for single Case Study view.",
+	"textdomain": "edu-craft-theme",
+	"viewScriptModule": "file:./view.js",
+	"style": "file:../../dist/css/case-study-gallery.css",
+	"supports": {
+		"html": false,
+		"inserter": false,
+		"interactivity": true
+	},
+	"render": "file:./index.php"
+}

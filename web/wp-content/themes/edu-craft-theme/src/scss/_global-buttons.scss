@@ -1,0 +1,10 @@
+/**
+ * Global Bootstrap 5 button styles.
+ *
+ * Core `.btn` / `.btn-*` rules come from `bootstrap.scss` (Bootstrap `buttons` partial).
+ * Use this file for site-wide button tweaks shared by templates and interactive blocks.
+ */
+
+.btn-sm {
+	min-height: 2rem;
+}

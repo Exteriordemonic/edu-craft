@@ -22,6 +22,10 @@ Desktop.ini
 .env.*
 !.env.example
 
+# Deploy DB credentials (examples *.example are tracked)
+deploy/db.local.env
+deploy/db.production.env
+
 # -----------------------------------------------------------------------------
 # Logs & local DB dumps
 # -----------------------------------------------------------------------------
@@ -35,19 +39,19 @@ Desktop.ini
 # DDEV (edu-craft) — project-level noise
 # Note: edu-craft/.ddev/.gitignore already ignores most generated DDEV files.
 # -----------------------------------------------------------------------------
-edu-craft/.ddev/import-db/
-edu-craft/.ddev/.importdb*
+/.ddev/import-db/
+/.ddev/.importdb*
 
 # -----------------------------------------------------------------------------
 # WordPress (edu-craft/web)
 # -----------------------------------------------------------------------------
 # Media & generated runtime (rebuild from production if needed)
-edu-craft/web/wp-content/uploads/
-edu-craft/web/wp-content/upgrade/
-edu-craft/web/wp-content/backup-db/
-edu-craft/web/wp-content/backups/
-edu-craft/web/wp-content/cache/
-edu-craft/web/wp-content/debug.log
+web/wp-content/uploads/
+web/wp-content/upgrade/
+/web/wp-content/backup-db/
+/web/wp-content/backups/
+/web/wp-content/cache/
+/web/wp-content/debug.log
 
 # Drop-in object cache (often symlinked / generated)
 edu-craft/web/wp-content/object-cache.php
@@ -68,3 +72,4 @@ edu-craft/web/wp-content/themes/edu-craft-theme/dist/**/*.map
 # PHP / Composer (plugins/themes that ship Composer deps locally)
 # -----------------------------------------------------------------------------
 **/vendor/
+.gitignore

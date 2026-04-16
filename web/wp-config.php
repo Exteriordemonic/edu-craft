@@ -25,6 +25,8 @@ define( 'NONCE_SALT', 'CFbexIjcIpHJPaIuhQtDEVGUCFznzYVLgqfFaKSGMCmyBpZcxgTcLzsVg
 
 /* Add any custom values between this line and the "stop editing" line. */
 
+/** Domyślny locale (np. przed instalacją). Po instalacji język bierze się z bazy (Ustawienia → Ogólne) lub WP-CLI. */
+define( 'WPLANG', 'pl_PL' );
 
 
 /* That's all, stop editing! Happy publishing. */
