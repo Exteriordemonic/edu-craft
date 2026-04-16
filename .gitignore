@@ -25,6 +25,7 @@ Desktop.ini
 # Deploy DB credentials (examples *.example are tracked)
 deploy/db.local.env
 deploy/db.production.env
+web/db.production.env
 
 # -----------------------------------------------------------------------------
 # Logs & local DB dumps
