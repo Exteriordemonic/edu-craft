@@ -1,9 +1,13 @@
 <?php
 /**
- * Produkcja: wczytuje deploy/db.production.env (KEY=value) i definiuje DB_*.
- * Lokalnie DDEV — plik jest pomijany (credentials z wp-config-ddev.php).
+ * Produkcja: wczytuje plik KEY=value z DB_*.
  *
- * Ładowany wyłącznie z wp-config.php (przed define ABSPATH).
+ * Kolejność ścieżek (open_basedir na MyDevil często obejmuje tylko katalog web — wtedy
+ * deploy/db.production.env poza web jest nieczytelny):
+ * 1) web/db.production.env (zalecane na hostingu)
+ * 2) ../deploy/db.production.env (lokalny backup / dev)
+ *
+ * Lokalnie DDEV — pomijane (wp-config-ddev.php).
  *
  * @package edu-craft
  */
@@ -16,8 +20,18 @@ if ( defined( 'DB_USER' ) ) {
 	return;
 }
 
-$env_path = dirname( __DIR__ ) . '/deploy/db.production.env';
-if ( ! is_readable( $env_path ) ) {
+$candidates = array(
+	__DIR__ . '/db.production.env',
+	dirname( __DIR__ ) . '/deploy/db.production.env',
+);
+$env_path = null;
+foreach ( $candidates as $path ) {
+	if ( is_readable( $path ) ) {
+		$env_path = $path;
+		break;
+	}
+}
+if ( ! $env_path ) {
 	return;
 }
 
