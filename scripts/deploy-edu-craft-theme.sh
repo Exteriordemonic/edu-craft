@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Deploy edu-craft-theme to MyDevil (rsync over SSH).
+# Pełny kod z gita na serwerze: scripts/sync-repo-on-remote.sh
 # Copy deploy/db.*.env.example → deploy/db.*.env for DB reference (not used by this script).
 
 set -euo pipefail
